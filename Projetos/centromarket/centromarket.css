@@ -1,0 +1,179 @@
+:root{
+  --bg:#ffffff;
+  --text:#1a1a1a;
+  --muted:#555;
+  --accent: #8b5e34;
+  --border:rgba(0,0,0,0.1);
+  --card-bg:#ffffff;
+}
+
+body.dark{
+  --bg:#0f141c;
+  --text:#f5f7fa;
+  --muted:#9aa0a6;
+  --border:rgba(255,255,255,0.1);
+  --card-bg:#151b24;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.4s;
+}
+
+h1,h2,h3{
+  font-family:'Playfair Display',serif;
+}
+
+section{
+  padding:120px 8vw;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+}
+
+.hero span{
+  letter-spacing:4px;
+  font-size:.7rem;
+  color:var(--accent);
+}
+
+.hero h1{
+  font-size:clamp(2.8rem,6vw,4.5rem);
+  margin-top:20px;
+  line-height:1.1;
+}
+
+.hero p{
+  margin-top:25px;
+  max-width:620px;
+  opacity:.85;
+}
+
+.alt{
+  background:rgba(0,0,0,0.03);
+}
+
+body.dark .alt{
+  background:rgba(255,255,255,0.03);
+}
+
+.pitch-list{
+  margin-top:20px;
+  padding-left:20px;
+  line-height:1.9;
+}
+
+.tech-grid{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:40px;
+}
+
+.roadmap{
+  margin-top:60px;
+  border-left:2px solid var(--border);
+  padding-left:40px;
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+
+.roadmap-item{
+  position:relative;
+}
+
+.roadmap-item::before{
+  content:"";
+  position:absolute;
+  left:-49px;
+  top:8px;
+  width:14px;
+  height:14px;
+  background:var(--accent);
+  border-radius:50%;
+}
+
+.current::before{
+  width:18px;
+  height:18px;
+  box-shadow:0 0 12px var(--accent);
+}
+
+.phase{
+  font-size:.7rem;
+  letter-spacing:3px;
+  color:var(--accent);
+}
+
+.gallery{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:8px;
+}
+
+video{
+  width:100%;
+  margin-top:30px;
+  border-radius:10px;
+}
+
+.download-btn{
+  display:inline-block;
+  margin-top:40px;
+  padding:14px 28px;
+  border:1px solid var(--accent);
+  text-decoration:none;
+  color:var(--accent);
+  transition:.3s;
+}
+
+.download-btn:hover{
+  background:var(--accent);
+  color:#fff;
+}
+
+.quote{
+  padding:120px 8vw;
+  text-align:center;
+}
+
+.quote p{
+  font-size:2rem;
+  max-width:900px;
+  margin:auto;
+  line-height:1.4;
+}
+
+/* TOGGLE */
+.theme-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.45);
+  color: var(--text);
+  cursor: pointer;
+  z-index: 10;
+}
+

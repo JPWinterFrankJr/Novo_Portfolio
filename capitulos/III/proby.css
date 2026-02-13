@@ -1,0 +1,262 @@
+:root {
+  --bg: #0b0f14;
+  --text: #eaeaea;
+  --muted: #9aa0a6;
+  --accent: #8b5e34;
+
+  --card-bg: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.12);
+}
+
+body.light {
+  --bg: #f4f6f8;
+  --text: #1a1a1a;
+  --muted: #555;
+  --accent: #8b5e34;
+
+  --card-bg: #ffffff;
+  --border: rgba(0,0,0,0.1);
+}
+
+/* BASE */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: .4s;
+}
+
+h1, h2 { font-family: 'Playfair Display', serif; }
+
+section { padding: 120px 8vw; }
+
+/* TOGGLE */
+.theme-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.45);
+  color: var(--text);
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(15,20,30,.65),
+      rgba(0,0,0,.85)
+    ),
+    url("img/hero.jpg") center/cover no-repeat;
+}
+
+body.light .hero::before {
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.85),
+      rgba(245,247,250,.95)
+    ),
+    url("img/hero.jpg") center/cover no-repeat;
+}
+
+.hero .text {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  padding-bottom: 80px;
+}
+
+.hero span {
+  font-size: .75rem;
+  letter-spacing: 4px;
+  color: var(--muted);
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.3rem);
+  margin-top: 14px;
+}
+
+.hero p {
+  margin-top: 22px;
+  font-size: 1.05rem;
+  opacity: .85;
+}
+
+/* STORY / LAYERS */
+.story, .layer, .impact {
+  max-width: 900px;
+  margin: auto;
+}
+
+.story p, .layer p, .impact p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.layer h2, .impact h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+.layer.alt {
+  padding: 60px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+/* IMERSÃO */
+.immersion h2 {
+  font-size: 2rem;
+  margin-bottom: 50px;
+}
+
+.immersion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.immersion-grid img {
+  width: 100%;
+  aspect-ratio: 16 / 9;  /* ou 1 / 1, 4 / 5, etc */
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
+}
+.immersion-video {
+  margin-top: 60px;
+}
+
+.immersion-video video {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* STACKS */
+.stacks { text-align: center; }
+
+.stack-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.stack-grid span {
+  padding: 10px 18px;
+  border-radius: 30px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+}
+.stack-note {
+  margin-top: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* DOCUMENTOS - INTERATIVO */
+.doc-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 22px 26px;
+  border-radius: 16px;
+
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+
+  text-decoration: none;
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease,
+    background .35s ease;
+}
+
+.doc-card strong {
+  font-size: 1rem;
+  display: block;
+}
+
+.doc-card small {
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.doc-icon {
+  font-size: 1.8rem;
+  opacity: .85;
+}
+
+/* HOVER */
+.doc-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.25),
+    0 0 0 1px rgba(110,168,254,.35);
+}
+
+/* FEEDBACK VISUAL */
+.doc-card:hover .doc-icon {
+  transform: scale(1.1);
+}
+
+.doc-card:active {
+  transform: translateY(-2px);
+}
+
+/* LIGHT MODE AJUSTE */
+body.light .doc-card:hover {
+  box-shadow:
+    0 18px 32px rgba(0,0,0,.15),
+    0 0 0 1px rgba(76,111,255,.35);
+}
+
+/* QUOTE */
+.quote p {
+  font-size: 2.2rem;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  font-style: italic;
+}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+  section { padding: 80px 6vw; }
+  .immersion-grid { grid-template-columns: 1fr; }
+  .quote p { font-size: 1.7rem; }
+}
